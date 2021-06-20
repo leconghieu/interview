@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+        context: .
+        dockerfile: build/nginx/Dockerfile
+    volumes:
+        - ./:/var/www/
+    ports:
+        - 8080:80
+    networks:
+        - laravel
+  php:
+    build:
+      context: .
+      dockerfile: build/php/Dockerfile
+      args:
+        www_data_uid: 1000
+        www_data_gid: 1000
+    container_name: interview_php   
+    volumes:
+      - ./:/var/www/
+    networks:
+      - laravel
+  db:
+    image: mysql:8.0.20
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - database_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel_password
+    ports:
+      - 3306:3306
+    networks:
+      - laravel
+
+networks:
+  laravel:
+
+volumes:
+  database_data:
