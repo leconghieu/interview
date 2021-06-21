@@ -9,6 +9,10 @@
 
 - You should replace the UID and GID in docker-compose.yml (line 19, 20). Run command `id -u` and `id -g` to get current UID and GID 
 
+> git clone https://github.com/leconghieu/interview.git
+
+> cd interview
+
 > make setup-docker
 
 > make install
