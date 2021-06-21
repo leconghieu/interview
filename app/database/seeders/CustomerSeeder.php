@@ -11,6 +11,9 @@ class CustomerSeeder extends Seeder
 
     public function run()
     {
+
+        Customer::truncate();
+        
         $customers = [
             ['name' => 'Christan', 'email' => 'christan@gmail.com', 'birthdate' => '2000-12-09'],
             ['name' => 'Brian', 'email' => 'brian@gmail.com', 'birthdate' => '1999-10-10'],
