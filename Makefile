@@ -1,7 +1,7 @@
 .PHONY: setup-docker inside-php clean-docker inside-mysql docker-start docker-stop install
 
 setup-docker:
-	cd app && mv .env.example .env
+	cd app && cp .env.example .env
 	docker-compose up --build -d
 	@echo ""
 	@printf " \033[33;5;7mYOU CAN RUN make install\033[0m "
@@ -15,7 +15,7 @@ install:
 	docker exec -it --user www-data interview_php bash -c 'php artisan db:seed'		
 
 docker-start:
-	docker-compose up --build -d
+	docker-compose up --build
 
 docker-stop:
 	docker-compose stop
