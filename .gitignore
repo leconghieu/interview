@@ -2,4 +2,3 @@
 .composer
 app/vendor/
 app/.env
-app/storage/
