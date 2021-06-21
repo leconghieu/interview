@@ -40,7 +40,6 @@ class MainTableController extends Controller
         return response()->json(['message' => 'Bad request'], Response::HTTP_BAD_REQUEST);
     }
 
-
     public function massEdit(Request $request)
     {
         $customers              = $request->customers;

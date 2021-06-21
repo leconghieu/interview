@@ -1,10 +1,8 @@
 .PHONY: setup-docker inside-php clean-docker inside-mysql docker-start docker-stop install
 
-UID = $(shell id -u)
-GID = $(shell id -g)
-
 setup-docker:
-	docker-compose up --build
+	cd app && mv .env.example .env
+	docker-compose up --build -d
 	@echo ""
 	@printf " \033[33;5;7mYOU CAN RUN make install\033[0m "
 	@echo ""
