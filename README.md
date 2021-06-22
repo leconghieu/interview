@@ -52,3 +52,23 @@
 		    ]
 		}`
 		
+# How to try the external api
+
+1. Step 1: Get user token on POSTMAN:
+- endpoint: http://localhost:8080/api/login
+- method: POST
+- Request body:
+`   "email": "",
+    "password": ""
+`
+
+![plot](./get_token.png)
+
+2. Step 2: Get customer list on POSTMAN:
+
+- endpoint: http://localhost:8080/api/customer-list?key=chris 
+Noted: This api will get all customers have the email or name that contains the key. If you want to get all customers without condition, let the key empty
+- method: GET
+- Authorization: select Bearer token and paste the token (get from step 1) to the box
+
+![plot](./get_customer_list.png)
