@@ -22,9 +22,6 @@ Route::get('login', function(){
     return view('login');
 });
 
-Route::post('login', 'App\Http\Controllers\AdminController@authenticate')->name('login');
-Route::post('register', 'App\Http\Controllers\AdminController@register')->name('register');
-
 Route::get('main-table', function() {
     return view('table_edit');
 })->name('maintable');
